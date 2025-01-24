@@ -19,8 +19,26 @@ sub calulateAvgFromArray(@numArray)
     }
 }
 
+sub aboveAverage(@numArray)
+{
+    my $avg = &calulateAvgFromArray(@numArray);
+    my @aboveNumArray;
+    my $num;
+    foreach $num (@numArray)
+    {
+        if ($num > $avg)
+        {
+            push(@aboveNumArray, $num);
+        }
 
-my @numArray = (1..5);
+    }
+
+    return @aboveNumArray;
+}
+
+my @numArray = (1..10);
 my $avg = calulateAvgFromArray(@numArray);
-print $avg;
+print "$avg\n";
+my @aboveArray = aboveAverage(@numArray);
+print "@aboveArray\n";
 
